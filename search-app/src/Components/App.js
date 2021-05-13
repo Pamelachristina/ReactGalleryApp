@@ -112,11 +112,12 @@ import notFound from './notFound';
               
               <Nav  />
               <Switch>
+                <Route exact path='/' render={ () => <PhotoList data={this.state.photos} title={this.state.tags} handleSearch={ () => this.performSearch}/>} />
                 <Route path="/search/:query" render={()=> <PhotoList data={this.state.photos} title={this.state.tags} handleSearch={this.performSearch} loading={this.state.isLoading}/> } />
                 <Route exact path='/' render={ () => <PhotoList data={this.state.photos} title={this.state.tags} />} />
-                <Route exact path="/cats" render={()=> <PhotoList data={this.state.cats} title="Cats"/>} />
-                <Route exact path="/dogs" render={()=> <PhotoList data={this.state.dogs} title="Dogs"/>} />
-                <Route exact path="/owls" render={()=> <PhotoList data={this.state.owls} title="Owls"/>} />
+                <Route exact path="/cats" render={()=> <PhotoList data={this.state.cats} title="Cats" handleSearch={() => this.performSearch}/>} />
+                <Route exact path="/dogs" render={()=> <PhotoList data={this.state.dogs} title="Dogs" handleSearch={() => this.performSearch}/>} />
+                <Route exact path="/owls" render={()=> <PhotoList data={this.state.owls} title="Owls" handleSearch={() => this.performSearch}/>} />
                 <Route component={notFound} />
 
 
