@@ -6,7 +6,6 @@ import Home from './Home';
 import Nav from './Nav';
 import {
   BrowserRouter,
-  Redirect,
   Route,
   Switch
 } from 'react-router-dom';
@@ -32,6 +31,12 @@ import notFound from './notFound';
       
     };
   } 
+
+  isLoading = () => {
+    this.setState({
+      loading: true
+    });
+  }
 
 
   performSearch = (query) => {
